@@ -42,3 +42,10 @@ You should see output like this:
 
 `ok      github.com/dmuth/google-go-log4go       0.009s`
 
+Contact Me
+==========
+
+This is my first ever Google Go package.  Chances are that I've done like over 9,000 things the wrong way.  Please drop me a line if you liked the package, thought it sucked, discuss the merits of velociraptors as housepets, or whatever.  
+
+My email address is doug.muth@gmail.com.  Additional contact methods can be found at http://www.dmuth.org/contact  Thanks!
+
