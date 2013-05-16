@@ -5,6 +5,19 @@ Still being new to Google Go, I wanted a logging facility.  I didn't
 have much luck finding one, so I decided to write a quick and dirty
 implementation of Log4j.
 
+Installation
+============
+
+For Beginners
+-------------
+    GOPATH=`pwd` go get   
+
+For Nerds
+---------
+    go get
+    
+The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn't a bad place.
+
 Usage
 =====
 
@@ -22,4 +35,10 @@ And you can expect to see output like this:
 
 Testing
 ========
+
+`go test ./src/github.com/dmuth/google-go-log4go/`
+
+You should see output like this:
+
+`ok      github.com/dmuth/google-go-log4go       0.009s`
 
