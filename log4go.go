@@ -112,6 +112,7 @@ func print(level int, message string) {
 
 	if (!beenhere) {
 		startTime = time.Now()
+		beenhere = true
 	}
 
 	if (_level >= level) {
