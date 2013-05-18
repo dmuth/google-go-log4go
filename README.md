@@ -8,9 +8,11 @@ implementation of Log4j.
 ## Installation
 
 ### For Beginners
+    git clone git://github.com/dmuth/google-go-log4go.git
     GOPATH=`pwd` go get   
 
 ### For Nerds
+    git clone git://github.com/dmuth/google-go-log4go.git
     go get
     
 The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn't a bad place.
