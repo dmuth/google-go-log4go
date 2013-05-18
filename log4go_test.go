@@ -34,6 +34,9 @@ func logStuff() {
 	Trace("test")
 }
 
+/**
+* Test SetLevel()
+*/
 func ExampleError() {
 	SetLevel(ErrorLevel)
 	logStuff()
@@ -78,4 +81,60 @@ func ExampleTrace() {
 	// DEBUG: test
 	// TRACE: test
 }
+
+
+/**
+* Test SetLevelString()
+*/
+func ExampleErrorString() {
+	SetLevel(DebugLevel)
+	SetLevelString("error")
+	logStuff()
+	// Output:
+	// ERROR: test
+}
+
+func ExampleWarnString() {
+	SetLevel(ErrorLevel)
+	SetLevelString("warn")
+	logStuff()
+	// Output:
+	// ERROR: test
+	// WARN: test
+}
+
+func ExampleInfoString() {
+	SetLevel(ErrorLevel)
+	SetLevelString("INFO")
+	logStuff()
+	// Output:
+	// ERROR: test
+	// WARN: test
+	// INFO: test
+}
+
+func ExampleDebugString() {
+	SetLevel(ErrorLevel)
+	SetLevelString("Debug")
+	logStuff()
+	// Output:
+	// ERROR: test
+	// WARN: test
+	// INFO: test
+	// DEBUG: test
+}
+
+func ExampleTraceString() {
+	SetLevel(ErrorLevel)
+	SetLevelString("trace")
+	logStuff()
+	// Output:
+	// ERROR: test
+	// WARN: test
+	// INFO: test
+	// DEBUG: test
+	// TRACE: test
+}
+
+
 

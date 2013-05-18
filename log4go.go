@@ -2,6 +2,7 @@
 package log4go
 
 import "fmt"
+import "strings"
 import "time"
 
 const (
@@ -36,6 +37,27 @@ var displayTime bool
 func SetLevel(level int) {
 	_level = level
 }
+
+
+/**
+* Set our logging level based on a string.
+* @param {string} level The level to set. This is case-insensitive.
+*/
+func SetLevelString(level string) {
+	level = strings.ToLower(level)
+	if (level == "error") {
+		SetLevel(ErrorLevel)
+	} else if (level == "warn") {
+		SetLevel(WarnLevel)
+	} else if (level == "info") {
+		SetLevel(InfoLevel)
+	} else if (level == "debug") {
+		SetLevel(DebugLevel)
+	} else if (level == "trace") {
+		SetLevel(TraceLevel)
+	}
+
+} // End of SetLevelString()
 
 
 /**
