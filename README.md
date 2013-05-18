@@ -8,11 +8,18 @@ implementation of Log4j.
 ## Installation
 
 ### For Beginners
-    git clone git://github.com/dmuth/google-go-log4go.git
+
+Use the following line somewhere in your Go code:
+    import log "github.com/dmuth/google-go-log4go"
+
+Then run this from the command line:
     GOPATH=`pwd` go get   
 
 ### For Nerds
-    git clone git://github.com/dmuth/google-go-log4go.git
+Use the following line somewhere in your Go code:
+    import log "github.com/dmuth/google-go-log4go"
+
+Then run this from the command line:
     go get
     
 The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn't a bad place.
