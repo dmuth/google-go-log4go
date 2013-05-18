@@ -36,6 +36,19 @@ The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn'
         log.SetLevel(log.DebugLevel)
         log.SetDisplayTime(true)
         log.Info("foobar")
+        
+        //
+        // Strings work, too.
+        //
+        log.SetLevelString("info")
+        log.Info("baz")
+        
+        //
+        // Strings are even case-insensitive!
+        //
+        log.SetLevelString("INFO")
+        log.Info("blurfl")
+        
     }
 
 And you can expect to see output like this:
