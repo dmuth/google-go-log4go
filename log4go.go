@@ -139,6 +139,12 @@ func print(level int, message string) {
 
 	if (_level >= level) {
 
+		//
+		// Escape newlines and carriage returns
+		//
+		message = strings.Replace(message, "\n", "\\n", -1)
+		message = strings.Replace(message, "\r", "\\r", -1)
+
 		if (displayTime) {
 			now := time.Now()
 			elapsed := now.Sub(startTime)

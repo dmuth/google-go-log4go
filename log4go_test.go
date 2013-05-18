@@ -136,5 +136,15 @@ func ExampleTraceString() {
 	// TRACE: test
 }
 
+func ExampleMultiLine() {
+	SetLevel(ErrorLevel)
+	SetLevelString("trace")
+	Error("test\ntest2")
+	Error("test3\rtest4")
+	// Output:
+	// ERROR: test\ntest2
+	// ERROR: test3\rtest4
+}
+
 
 
