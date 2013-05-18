@@ -22,19 +22,28 @@ func TestMain(t *testing.T) {
 } // End of TestMain()
 
 
-func ExampleError() {
-	SetLevel(ErrorLevel)
+/**
+* Central function to log things that is called by the other testing 
+* functions.
+*/
+func logStuff() {
 	Error("test")
 	Warn("test")
+	Info("test")
+	Debug("test")
+	Trace("test")
+}
+
+func ExampleError() {
+	SetLevel(ErrorLevel)
+	logStuff()
 	// Output:
 	// ERROR: test
 }
 
 func ExampleWarn() {
 	SetLevel(WarnLevel)
-	Error("test")
-	Warn("test")
-	Info("test")
+	logStuff()
 	// Output:
 	// ERROR: test
 	// WARN: test
@@ -42,10 +51,7 @@ func ExampleWarn() {
 
 func ExampleInfo() {
 	SetLevel(InfoLevel)
-	Error("test")
-	Warn("test")
-	Info("test")
-	Debug("test")
+	logStuff()
 	// Output:
 	// ERROR: test
 	// WARN: test
@@ -54,11 +60,7 @@ func ExampleInfo() {
 
 func ExampleDebug() {
 	SetLevel(DebugLevel)
-	Error("test")
-	Warn("test")
-	Info("test")
-	Debug("test")
-	Trace("test")
+	logStuff()
 	// Output:
 	// ERROR: test
 	// WARN: test
@@ -68,11 +70,7 @@ func ExampleDebug() {
 
 func ExampleTrace() {
 	SetLevel(TraceLevel)
-	Error("test")
-	Warn("test")
-	Info("test")
-	Debug("test")
-	Trace("test")
+	logStuff()
 	// Output:
 	// ERROR: test
 	// WARN: test
@@ -80,5 +78,4 @@ func ExampleTrace() {
 	// DEBUG: test
 	// TRACE: test
 }
-
 
