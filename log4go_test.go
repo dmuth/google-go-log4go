@@ -3,6 +3,8 @@ package log4go
 
 import "testing"
 
+//import "fmt"
+
 
 func TestMain(t *testing.T) {
 
@@ -146,5 +148,13 @@ func ExampleMultiLine() {
 	// ERROR: test3\rtest4
 }
 
+
+func ExampleBackspaceAndMore() {
+	SetLevelString("info")
+	Error("test" + string(0) + "test2" + string(31) + "test3" + string(8) + string(2)  + "test4")
+
+	// Output: 
+	// ERROR: test[0x00]test2[0x1f]test3[0x08][0x02]test4
+}
 
 

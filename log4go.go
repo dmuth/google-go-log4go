@@ -3,6 +3,7 @@ package log4go
 
 import "fmt"
 import "strings"
+import "regexp"
 import "time"
 
 const (
@@ -144,6 +145,16 @@ func print(level int, message string) {
 		//
 		message = strings.Replace(message, "\n", "\\n", -1)
 		message = strings.Replace(message, "\r", "\\r", -1)
+
+		//
+		// Escape anything else that is below ASCII 32 (space)
+		// This is done because backspace (ASCII 8) is especially evil,
+		// as an attrack could inject backspaces to hide their tracks
+		//
+		re, _ := regexp.Compile("([\x00-\x1f])")
+		message = re.ReplaceAllStringFunc(message, func(in string) string {
+			return(fmt.Sprintf("[0x%x]", in))
+			})
 
 		if (displayTime) {
 			now := time.Now()
