@@ -55,6 +55,22 @@ And you can expect to see output like this:
 
     [301.119ms] INFO: foobar
 
+## Escaping malicious input
+
+It was pointed out to me that if things like invalid logins, SQL 
+injection attempts, etc. are logged, an would-be attacker could pass in
+the backspace character (ASCII 8) to "hide" output on a casual glance.
+
+This package tries to protect against that by escaping anything with an
+ASCII value of less than 32.  This includes carriage returns (ASCII 13)
+and newlines (ASCII 10).
+
+Here is an example of an attacker trying to use backspaces, and what 
+this module would print out instead:
+
+    ERROR: Failed login: BlackHat[0x08][0x08][0x08][0x08][0x08][0x08][0x08][0x08]WhiteHat
+
+
 ## Testing
 
 `go test ./src/github.com/dmuth/google-go-log4go/`
