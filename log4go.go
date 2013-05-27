@@ -95,12 +95,27 @@ func Error(message string) {
 	print(ErrorLevel, "ERROR: " + message);
 }
 
+/**
+* This and all of the other "LevelF()" functions are wrappers for Printf.
+*/
+func Errorf(message string, v ...interface{}) {
+	printf(ErrorLevel, "ERROR: " + message, v...)
+}
+
 
 /**
 * Log a warning
 */
 func Warn(message string) {
 	print(WarnLevel, "WARN: " + message)
+}
+
+
+/**
+* This and all of the other "LevelF()" functions are wrappers for Printf.
+*/
+func Warnf(message string, v ...interface{}) {
+	printf(WarnLevel, "WARN: " + message, v...)
 }
 
 
@@ -113,6 +128,14 @@ func Info(message string) {
 
 
 /**
+* This and all of the other "LevelF()" functions are wrappers for Printf.
+*/
+func Infof(message string, v ...interface{}) {
+	printf(InfoLevel, "INFO: " + message, v...)
+}
+
+
+/**
 * Log debugigng
 */
 func Debug(message string) {
@@ -121,10 +144,26 @@ func Debug(message string) {
 
 
 /**
+* This and all of the other "LevelF()" functions are wrappers for Printf.
+*/
+func Debugf(message string, v ...interface{}) {
+	printf(DebugLevel, "DEBUG: " + message, v...)
+}
+
+
+/**
 * Log a trace 
 */
 func Trace(message string) {
 	print (TraceLevel, "TRACE: " + message)
+}
+
+
+/**
+* This and all of the other "LevelF()" functions are wrappers for Printf.
+*/
+func Tracef(message string, v ...interface{}) {
+	printf(TraceLevel, "TRACE: " + message, v...)
 }
 
 
@@ -169,6 +208,15 @@ func print(level int, message string) {
 	}
 
 } // End of print()
+
+
+/**
+* Fancy wrapper for Printf.
+*/
+func printf(level int, message string, v ...interface{}) {
+	message_out := fmt.Sprintf(message, v...)
+	print(level, message_out)
+}
 
 
 

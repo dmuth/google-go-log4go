@@ -30,10 +30,15 @@ func TestMain(t *testing.T) {
 */
 func logStuff() {
 	Error("test")
+	Errorf("test: %s, %s, %d", "foo", "bar", 123)
 	Warn("test")
+	Warnf("test: %s, %s, %d", "foo", "bar", 123)
 	Info("test")
+	Infof("test: %s, %s, %d", "foo", "bar", 123)
 	Debug("test")
+	Debugf("test: %s, %s, %d", "foo", "bar", 123)
 	Trace("test")
+	Tracef("test: %s, %s, %d", "foo", "bar", 123)
 }
 
 /**
@@ -44,6 +49,7 @@ func ExampleError() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 }
 
 func ExampleWarn() {
@@ -51,7 +57,9 @@ func ExampleWarn() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 }
 
 func ExampleInfo() {
@@ -59,8 +67,11 @@ func ExampleInfo() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 }
 
 func ExampleDebug() {
@@ -68,9 +79,13 @@ func ExampleDebug() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 	// DEBUG: test
+	// DEBUG: test: foo, bar, 123
 }
 
 func ExampleTrace() {
@@ -78,10 +93,15 @@ func ExampleTrace() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 	// DEBUG: test
+	// DEBUG: test: foo, bar, 123
 	// TRACE: test
+	// TRACE: test: foo, bar, 123
 }
 
 
@@ -94,6 +114,7 @@ func ExampleErrorString() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 }
 
 func ExampleWarnString() {
@@ -102,7 +123,9 @@ func ExampleWarnString() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 }
 
 func ExampleInfoString() {
@@ -111,8 +134,11 @@ func ExampleInfoString() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 }
 
 func ExampleDebugString() {
@@ -121,9 +147,13 @@ func ExampleDebugString() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 	// DEBUG: test
+	// DEBUG: test: foo, bar, 123
 }
 
 func ExampleTraceString() {
@@ -132,10 +162,15 @@ func ExampleTraceString() {
 	logStuff()
 	// Output:
 	// ERROR: test
+	// ERROR: test: foo, bar, 123
 	// WARN: test
+	// WARN: test: foo, bar, 123
 	// INFO: test
+	// INFO: test: foo, bar, 123
 	// DEBUG: test
+	// DEBUG: test: foo, bar, 123
 	// TRACE: test
+	// TRACE: test: foo, bar, 123
 }
 
 func ExampleMultiLine() {
@@ -152,7 +187,7 @@ func ExampleMultiLine() {
 func ExampleBackspaceAndMore() {
 	SetLevelString("info")
 	Error("test" + string(0) + "test2" + string(31) + "test3" + string(8) + string(2)  + "test4")
-
+	//
 	// Output: 
 	// ERROR: test[0x00]test2[0x1f]test3[0x08][0x02]test4
 }
