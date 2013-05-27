@@ -49,6 +49,11 @@ The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn'
         log.SetLevelString("INFO")
         log.Info("blurfl")
         
+        //
+        // I herd u liek Printf()
+        //
+        log.Infof("Number of widgets: %d", 1001)
+        
     }
 
 And you can expect to see output like this:
