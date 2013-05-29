@@ -8,7 +8,7 @@
 
 - Added Errorf(), Infof(), Warnf(), Debugf(), and Tracef()
     - They all offer Printf()-like functionality.
-    - e.g. Errorf("Expected 4, got: %d", 72)
+    - e.g. `Errorf("Expected 4, got: %d", 72)`
 
 ### 18 May 2013 (Commit 0428a276f21271b224f570aa0f2ae4cc84967bbd)
 
