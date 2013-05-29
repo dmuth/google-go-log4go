@@ -6,6 +6,10 @@ import "strings"
 import "regexp"
 import "time"
 
+
+import "github.com/wsxiaoys/terminal/color"
+
+
 const (
 	ErrorLevel = iota
 	WarnLevel = iota
@@ -38,6 +42,16 @@ var beenhere bool
 // but it'll work for now!
 //
 var displayTime int
+
+
+//
+// Same thing with color.  Do we want it?
+//
+// 0 - uninitialized (defaults to true)
+// 1 - false
+// 2 - true
+//
+var useColor int
 
 
 /**
@@ -102,6 +116,33 @@ func SetDisplayTime(display bool) {
 		displayTime = 2
 	} else {
 		displayTime = 1
+	}
+}
+
+
+/**
+* Get our use color value
+* @return {bool} True if we are using color in messages
+*/
+func UseColor() bool {
+	if (useColor == 0 || useColor == 2) {
+		return(true)
+	}
+
+	return(false)
+
+}
+
+
+/**
+* Set our use color settings
+* @param {bool} use_color True if we want to use color in messages
+*/
+func SetUseColor(use_color bool) {
+	if (use_color) {
+		useColor = 2
+	} else {
+		useColor = 1
 	}
 }
 
@@ -203,6 +244,7 @@ func print(level int, message string) {
 		message = strings.Replace(message, "\n", "\\n", -1)
 		message = strings.Replace(message, "\r", "\\r", -1)
 
+
 		//
 		// Escape anything else that is below ASCII 32 (space)
 		// This is done because backspace (ASCII 8) is especially evil,
@@ -219,16 +261,52 @@ func print(level int, message string) {
 		if (displayTime == 0 || displayTime == 2) {
 			now := time.Now()
 			elapsed := now.Sub(startTime)
-			fmt.Printf("[%s] %s\n", elapsed, message)
+			if (UseColor()) {
+				color_string := getColor(level)
+				color.Printf(color_string + "[%s] %s\n", elapsed, message)
+			} else {
+				fmt.Printf("[%s] %s\n", elapsed, message)
+			}
 
 		} else {
-			fmt.Println(message)
+			if (UseColor()) {
+				color_string := getColor(level)
+				color.Println(color_string + message)
+			} else {
+				fmt.Println(message)
+			}
 
 		}
 
 	}
 
 } // End of print()
+
+
+/**
+* Get a color code for a specific log level.
+*
+* @param {integer} level The reporting level
+* @return {string} The string for the color code to return.
+*/
+func getColor(level int) (retval string) {
+
+	retval = ""
+	if (level == ErrorLevel) {
+		retval = "@{!r}"
+	} else if (level == WarnLevel) {
+		retval = "@{!y}"
+	} else if (level == InfoLevel) {
+		retval = "@{!g}"
+	} else if (level == DebugLevel) {
+		retval = "@{!c}"
+	} else if (level == TraceLevel) {
+		retval = "@{!b}"
+	}
+
+	return(retval)
+
+} // End of getcolor()
 
 
 /**
