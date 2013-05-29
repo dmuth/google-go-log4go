@@ -29,6 +29,7 @@ func TestMain(t *testing.T) {
 * functions.
 */
 func logStuff() {
+	SetDisplayTime(false)
 	Error("test")
 	Errorf("test: %s, %s, %d", "foo", "bar", 123)
 	Warn("test")
@@ -174,6 +175,7 @@ func ExampleTraceString() {
 }
 
 func ExampleMultiLine() {
+	SetDisplayTime(false)
 	SetLevel(ErrorLevel)
 	SetLevelString("trace")
 	Error("test\ntest2")
@@ -186,6 +188,7 @@ func ExampleMultiLine() {
 
 func ExampleBackspaceAndMore() {
 	SetLevelString("info")
+	SetDisplayTime(false)
 	Error("test" + string(0) + "test2" + string(31) + "test3" + string(8) + string(2)  + "test4")
 	//
 	// Output: 

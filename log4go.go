@@ -28,7 +28,16 @@ var beenhere bool
 //
 // Do we want to display timestamps?
 //
-var displayTime bool
+// Since I can't initialize a boolean to true, I'm going to make this an 
+// int with the following values:
+// 0 - uninitialized (defaults to true)
+// 1 - false
+// 2 - true
+//
+// I'm not sure if this is the best method, as I am still learning Go, 
+// but it'll work for now!
+//
+var displayTime int
 
 
 /**
@@ -75,7 +84,12 @@ func Level() int {
 * @return {bool} True if we are displaying timestamps in messages
 */
 func DisplayTime() bool {
-	return (displayTime)
+	if (displayTime == 0 || displayTime == 2) {
+		return(true)
+	}
+
+	return(false)
+
 }
 
 
@@ -84,7 +98,11 @@ func DisplayTime() bool {
 * @param {bool} display True if we want to display timestamps in messages
 */
 func SetDisplayTime(display bool) {
-	displayTime = display
+	if (display) {
+		displayTime = 2
+	} else {
+		displayTime = 1
+	}
 }
 
 
@@ -195,7 +213,10 @@ func print(level int, message string) {
 			return(fmt.Sprintf("[0x%x]", in))
 			})
 
-		if (displayTime) {
+		//
+		// If displayTime is uninitialized, default to true
+		//
+		if (displayTime == 0 || displayTime == 2) {
 			now := time.Now()
 			elapsed := now.Sub(startTime)
 			fmt.Printf("[%s] %s\n", elapsed, message)
