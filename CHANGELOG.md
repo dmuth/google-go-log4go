@@ -1,4 +1,9 @@
 
+### 28 May 2013 (Commit 81882e13a4062ca57efb8e3ff07514125595212c)
+
+- Added color support
+- 
+
 ### 27 May 2013 (Commit d6cc090d611ac57e44e0fb0bd7d559bffa202097)
 
 - Added Errorf(), Infof(), Warnf(), Debugf(), and Tracef()
