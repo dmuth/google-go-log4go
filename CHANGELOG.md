@@ -1,6 +1,6 @@
 ### 28 May 2013 (Commit 81882e13a4062ca57efb8e3ff07514125595212c)
 
-- Added color support
+- Added color support, thanks to Meng Zhang's excellent Terminal package: https://github.com/wsxiaoys/terminal
 - Example:
     ![](https://raw.github.com/dmuth/google-go-log4go/master/docs/log4go_screenshot.png)
 
