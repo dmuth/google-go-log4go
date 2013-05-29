@@ -58,7 +58,8 @@ The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn'
 
 And you can expect to see output like this:
 
-    [301.119ms] INFO: foobar
+![log4go screenshot](https://raw.github.com/dmuth/google-go-log4go/master/docs/log4go_screenshot.png)
+
 
 ## Escaping malicious input
 
