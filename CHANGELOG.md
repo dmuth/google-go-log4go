@@ -1,7 +1,8 @@
 ### 28 May 2013 (Commit 81882e13a4062ca57efb8e3ff07514125595212c)
 
 - Added color support
-
+- Example:
+    ![](https://raw.github.com/dmuth/google-go-log4go/master/docs/log4go_screenshot.png)
 
 ### 27 May 2013 (Commit d6cc090d611ac57e44e0fb0bd7d559bffa202097)
 
