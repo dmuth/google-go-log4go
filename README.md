@@ -60,6 +60,7 @@ And you can expect to see output like this:
 
 ![log4go screenshot](https://raw.github.com/dmuth/google-go-log4go/master/docs/log4go_screenshot.png)
 
+(Colored text is created with to Meng Zhang's excellent Terminal package: https://github.com/wsxiaoys/terminal)
 
 ## Escaping malicious input
 
