@@ -1,34 +1,17 @@
-Introducing Log4go
-==================
+## Introducing Log4go
 
 Still being new to Google Go, I wanted a logging facility.  I didn't 
 have much luck finding one, so I decided to write a quick and dirty
 implementation of Log4j.
 
-## Installation
+### Installation
 
-### For Beginners
+Installation is easy. First make sure you have your [GOPATH](http://golang.org/doc/code.html#GOPATH) setup properly. Then use `go get` to download and compile this package.
 
-Use the following line somewhere in your Go code:
+    go get github.com/dmuth/google-go-log4go
 
-    import log "github.com/dmuth/google-go-log4go"
 
-Then run this from the command line:
-
-    GOPATH=`pwd` go get   
-
-### For Nerds
-Use the following line somewhere in your Go code:
-
-    import log "github.com/dmuth/google-go-log4go"
-
-Then run this from the command line:
-
-    go get
-    
-The latter example assumes you already have `$GOPATH` set.  `$HOME/golibs/` isn't a bad place.
-
-## Usage
+### Usage
 
     import log "github.com/dmuth/google-go-log4go"
     
@@ -62,7 +45,7 @@ And you can expect to see output like this:
 
 (Colored text is created with to Meng Zhang's excellent Terminal package: https://github.com/wsxiaoys/terminal)
 
-## Escaping malicious input
+### Escaping malicious input
 
 It was pointed out to me that if things like invalid logins, SQL 
 injection attempts, etc. are logged, an would-be attacker could pass in
@@ -78,7 +61,7 @@ this module would print out instead:
     ERROR: Failed login: BlackHat[0x08][0x08][0x08][0x08][0x08][0x08][0x08][0x08]WhiteHat
 
 
-## Testing
+### Testing
 
 `go test ./src/github.com/dmuth/google-go-log4go/`
 
@@ -86,7 +69,7 @@ You should see output like this:
 
 `ok      github.com/dmuth/google-go-log4go       0.009s`
 
-## Contact Me
+### Contact Me
 
 This is my first ever Google Go package.  Chances are that I've done like over 9,000 things the wrong way.  Please drop me a line if you liked the package, thought it sucked, want to discuss the merits of velociraptors as housepets, or whatever.  
 
