@@ -10,6 +10,7 @@ Installation is easy. First make sure you have your [GOPATH](http://golang.org/d
 
     go get github.com/dmuth/google-go-log4go
 
+Also, make sure your $GOPATH environment variable is set up properly: `export GOPATH=$HOME/golib` or similar
 
 ### Usage
 
